@@ -1,0 +1,6 @@
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DAL\bin\Debug\DAL.dll
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DAL\bin\Debug\DAL.pdb
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DAL\obj\Debug\DAL.dll
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DAL\obj\Debug\DAL.pdb
