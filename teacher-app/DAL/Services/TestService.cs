@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DAL.DataSources;
 using DTO;
 namespace DAL.Services
 {
@@ -17,26 +18,28 @@ namespace DAL.Services
         public List<Test> GetAllTestByIdTeacher()
         {
 
-            return new List<Test>();
+            return DataFake.GetListTests;
         }
 
         public Test GetTestById(string id)
         {
-            return null;
+            return DataFake.GetListTests[0];
         }
 
-        public void InsertTest(Test test)
+        public Test InsertTest(Test test)
         {
 
+            return test;
         }
-        public void UpdateTest(Test test)
+        public Test UpdateTest(Test test)
         {
-
+            return test;
         }
 
-        public void DeleteTest(string id)
+        public bool DeleteTest(string id)
         {
 
+            return true;
         }
 
 

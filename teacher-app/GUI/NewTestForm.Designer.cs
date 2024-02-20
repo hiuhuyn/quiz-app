@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxEditInfoTest = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -38,7 +41,6 @@
             this.txtTitle = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxButton = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnHistory = new System.Windows.Forms.Button();
@@ -47,29 +49,42 @@
             this.btnNewQuestion = new System.Windows.Forms.Button();
             this.groupBoxNewQuestion = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBoxChooseTheCorrectAnswer = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.richTxtD = new System.Windows.Forms.RichTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.richTxtC = new System.Windows.Forms.RichTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.richTxtB = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.richTxtA = new System.Windows.Forms.RichTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.richTxtQuestion = new System.Windows.Forms.RichTextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBoxChooseTheCorrectAnswer = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.richTxtD = new System.Windows.Forms.RichTextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.richTxtC = new System.Windows.Forms.RichTextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.richTxtB = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.richTxtA = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDeleteManyQuestions = new System.Windows.Forms.Button();
             this.btnDeleteOneQuestion = new System.Windows.Forms.Button();
             this.btnUpdateQuestion = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Question = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Answer4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnswerCorrect = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxEditInfoTest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxButton.SuspendLayout();
             this.groupBoxNewQuestion.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxEditInfoTest
@@ -84,10 +99,11 @@
             this.groupBoxEditInfoTest.Controls.Add(this.label3);
             this.groupBoxEditInfoTest.Controls.Add(this.label2);
             this.groupBoxEditInfoTest.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBoxEditInfoTest.Font = new System.Drawing.Font("Times New Roman", 7.8F);
             this.groupBoxEditInfoTest.Location = new System.Drawing.Point(5, 20);
             this.groupBoxEditInfoTest.Name = "groupBoxEditInfoTest";
             this.groupBoxEditInfoTest.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBoxEditInfoTest.Size = new System.Drawing.Size(360, 320);
+            this.groupBoxEditInfoTest.Size = new System.Drawing.Size(360, 382);
             this.groupBoxEditInfoTest.TabIndex = 12;
             this.groupBoxEditInfoTest.TabStop = false;
             this.groupBoxEditInfoTest.Text = "Thông tin bộ đề";
@@ -177,17 +193,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Tiêu đề";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 10);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1004, 563);
-            this.dataGridView1.TabIndex = 15;
-            // 
             // groupBoxButton
             // 
             this.groupBoxButton.Controls.Add(this.btnSave);
@@ -198,7 +203,7 @@
             this.groupBoxButton.Location = new System.Drawing.Point(10, 513);
             this.groupBoxButton.Name = "groupBoxButton";
             this.groupBoxButton.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBoxButton.Size = new System.Drawing.Size(1004, 60);
+            this.groupBoxButton.Size = new System.Drawing.Size(1187, 60);
             this.groupBoxButton.TabIndex = 16;
             this.groupBoxButton.TabStop = false;
             // 
@@ -208,7 +213,7 @@
             this.btnSave.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSave.Font = new System.Drawing.Font("Arial", 10.2F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(679, 20);
+            this.btnSave.Location = new System.Drawing.Point(862, 20);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(111, 35);
             this.btnSave.TabIndex = 0;
@@ -234,7 +239,7 @@
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.btnCancel.Location = new System.Drawing.Point(790, 20);
+            this.btnCancel.Location = new System.Drawing.Point(973, 20);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(98, 35);
             this.btnCancel.TabIndex = 2;
@@ -248,7 +253,7 @@
             this.btnDelTest.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDelTest.Font = new System.Drawing.Font("Arial", 10.2F);
             this.btnDelTest.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDelTest.Location = new System.Drawing.Point(888, 20);
+            this.btnDelTest.Location = new System.Drawing.Point(1071, 20);
             this.btnDelTest.Name = "btnDelTest";
             this.btnDelTest.Size = new System.Drawing.Size(111, 35);
             this.btnDelTest.TabIndex = 1;
@@ -277,7 +282,7 @@
             this.groupBoxNewQuestion.Location = new System.Drawing.Point(10, 10);
             this.groupBoxNewQuestion.Name = "groupBoxNewQuestion";
             this.groupBoxNewQuestion.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBoxNewQuestion.Size = new System.Drawing.Size(1004, 345);
+            this.groupBoxNewQuestion.Size = new System.Drawing.Size(1187, 407);
             this.groupBoxNewQuestion.TabIndex = 17;
             this.groupBoxNewQuestion.TabStop = false;
             // 
@@ -286,177 +291,187 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.comboBoxChooseTheCorrectAnswer);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.richTxtD);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.richTxtC);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.richTxtB);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.richTxtA);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.richTxtQuestion);
-            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.groupBox5);
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(371, 20);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Size = new System.Drawing.Size(625, 320);
+            this.groupBox1.Size = new System.Drawing.Size(808, 382);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin câu hỏi";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.richTxtQuestion);
+            this.groupBox5.Controls.Add(this.groupBox4);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(5, 20);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.groupBox5.Size = new System.Drawing.Size(415, 315);
+            this.groupBox5.TabIndex = 28;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Câu hỏi";
+            // 
+            // richTxtQuestion
+            // 
+            this.richTxtQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTxtQuestion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTxtQuestion.Location = new System.Drawing.Point(10, 26);
+            this.richTxtQuestion.Name = "richTxtQuestion";
+            this.richTxtQuestion.Size = new System.Drawing.Size(395, 220);
+            this.richTxtQuestion.TabIndex = 12;
+            this.richTxtQuestion.Text = "";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboBoxChooseTheCorrectAnswer);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(10, 246);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox4.Size = new System.Drawing.Size(395, 64);
+            this.groupBox4.TabIndex = 27;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Chọn đáp án đúng";
+            // 
             // comboBoxChooseTheCorrectAnswer
             // 
+            this.comboBoxChooseTheCorrectAnswer.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBoxChooseTheCorrectAnswer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChooseTheCorrectAnswer.FormattingEnabled = true;
-            this.comboBoxChooseTheCorrectAnswer.Location = new System.Drawing.Point(23, 203);
+            this.comboBoxChooseTheCorrectAnswer.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.comboBoxChooseTheCorrectAnswer.Location = new System.Drawing.Point(5, 26);
             this.comboBoxChooseTheCorrectAnswer.Name = "comboBoxChooseTheCorrectAnswer";
             this.comboBoxChooseTheCorrectAnswer.Size = new System.Drawing.Size(186, 27);
             this.comboBoxChooseTheCorrectAnswer.TabIndex = 12;
             // 
-            // label12
+            // groupBox3
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(19, 174);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(146, 19);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Chọn đáp án đúng";
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.groupBox8);
+            this.groupBox3.Controls.Add(this.groupBox7);
+            this.groupBox3.Controls.Add(this.groupBox6);
+            this.groupBox3.Controls.Add(this.groupBox2);
+            this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(426, 20);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.groupBox3.Size = new System.Drawing.Size(377, 315);
+            this.groupBox3.TabIndex = 26;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Câu trả lời";
             // 
-            // label11
+            // groupBox8
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(329, 230);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(21, 19);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "D";
+            this.groupBox8.Controls.Add(this.richTxtD);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(10, 230);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(357, 68);
+            this.groupBox8.TabIndex = 28;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "D";
             // 
             // richTxtD
             // 
+            this.richTxtD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtD.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTxtD.Location = new System.Drawing.Point(355, 212);
+            this.richTxtD.Location = new System.Drawing.Point(3, 26);
             this.richTxtD.Name = "richTxtD";
-            this.richTxtD.Size = new System.Drawing.Size(247, 50);
-            this.richTxtD.TabIndex = 21;
+            this.richTxtD.Size = new System.Drawing.Size(351, 39);
+            this.richTxtD.TabIndex = 15;
             this.richTxtD.Text = "";
             // 
-            // label10
+            // groupBox7
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(329, 174);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 19);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "C";
+            this.groupBox7.Controls.Add(this.richTxtC);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(10, 162);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(357, 68);
+            this.groupBox7.TabIndex = 27;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "C";
             // 
             // richTxtC
             // 
+            this.richTxtC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtC.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTxtC.Location = new System.Drawing.Point(355, 156);
+            this.richTxtC.Location = new System.Drawing.Point(3, 26);
             this.richTxtC.Name = "richTxtC";
-            this.richTxtC.Size = new System.Drawing.Size(247, 50);
-            this.richTxtC.TabIndex = 19;
+            this.richTxtC.Size = new System.Drawing.Size(351, 39);
+            this.richTxtC.TabIndex = 15;
             this.richTxtC.Text = "";
             // 
-            // label9
+            // groupBox6
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(329, 118);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 19);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "B";
+            this.groupBox6.Controls.Add(this.richTxtB);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(10, 94);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(357, 68);
+            this.groupBox6.TabIndex = 26;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "B";
             // 
             // richTxtB
             // 
+            this.richTxtB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtB.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTxtB.Location = new System.Drawing.Point(355, 100);
+            this.richTxtB.Location = new System.Drawing.Point(3, 26);
             this.richTxtB.Name = "richTxtB";
-            this.richTxtB.Size = new System.Drawing.Size(247, 50);
-            this.richTxtB.TabIndex = 17;
+            this.richTxtB.Size = new System.Drawing.Size(351, 39);
+            this.richTxtB.TabIndex = 15;
             this.richTxtB.Text = "";
             // 
-            // label8
+            // groupBox2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(329, 62);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 19);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "A";
+            this.groupBox2.Controls.Add(this.richTxtA);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(10, 26);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(357, 68);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "A";
             // 
             // richTxtA
             // 
+            this.richTxtA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtA.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTxtA.Location = new System.Drawing.Point(355, 44);
+            this.richTxtA.Location = new System.Drawing.Point(3, 26);
             this.richTxtA.Name = "richTxtA";
-            this.richTxtA.Size = new System.Drawing.Size(247, 50);
+            this.richTxtA.Size = new System.Drawing.Size(351, 39);
             this.richTxtA.TabIndex = 15;
             this.richTxtA.Text = "";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 19);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Câu hỏi";
-            // 
-            // richTxtQuestion
-            // 
-            this.richTxtQuestion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTxtQuestion.Location = new System.Drawing.Point(19, 44);
-            this.richTxtQuestion.Name = "richTxtQuestion";
-            this.richTxtQuestion.Size = new System.Drawing.Size(291, 106);
-            this.richTxtQuestion.TabIndex = 12;
-            this.richTxtQuestion.Text = "";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(351, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 19);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Câu trả lời";
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnDeleteManyQuestions);
             this.panel1.Controls.Add(this.btnDeleteOneQuestion);
             this.panel1.Controls.Add(this.btnUpdateQuestion);
             this.panel1.Controls.Add(this.btnNewQuestion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(5, 273);
+            this.panel1.Location = new System.Drawing.Point(5, 335);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(615, 42);
+            this.panel1.Size = new System.Drawing.Size(798, 42);
             this.panel1.TabIndex = 3;
-            // 
-            // btnDeleteManyQuestions
-            // 
-            this.btnDeleteManyQuestions.AutoSize = true;
-            this.btnDeleteManyQuestions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDeleteManyQuestions.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.btnDeleteManyQuestions.Location = new System.Drawing.Point(263, 5);
-            this.btnDeleteManyQuestions.Name = "btnDeleteManyQuestions";
-            this.btnDeleteManyQuestions.Size = new System.Drawing.Size(152, 32);
-            this.btnDeleteManyQuestions.TabIndex = 3;
-            this.btnDeleteManyQuestions.Text = "Xóa nhiều câu hỏi";
-            this.btnDeleteManyQuestions.UseVisualStyleBackColor = true;
-            this.btnDeleteManyQuestions.Click += new System.EventHandler(this.btnDeleteQuestion_Click);
             // 
             // btnDeleteOneQuestion
             // 
@@ -469,6 +484,7 @@
             this.btnDeleteOneQuestion.TabIndex = 4;
             this.btnDeleteOneQuestion.Text = "Xóa";
             this.btnDeleteOneQuestion.UseVisualStyleBackColor = true;
+            this.btnDeleteOneQuestion.Click += new System.EventHandler(this.btnDeleteOneQuestion_Click);
             // 
             // btnUpdateQuestion
             // 
@@ -481,29 +497,115 @@
             this.btnUpdateQuestion.TabIndex = 3;
             this.btnUpdateQuestion.Text = "Cập nhật";
             this.btnUpdateQuestion.UseVisualStyleBackColor = true;
+            this.btnUpdateQuestion.Click += new System.EventHandler(this.btnUpdateQuestion_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 10.8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Question,
+            this.Answer1,
+            this.Answer2,
+            this.Answer3,
+            this.Answer4,
+            this.AnswerCorrect});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 10.8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 417);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1187, 96);
+            this.dataGridView1.TabIndex = 18;
+            // 
+            // Question
+            // 
+            this.Question.HeaderText = "Câu hỏi";
+            this.Question.MinimumWidth = 6;
+            this.Question.Name = "Question";
+            // 
+            // Answer1
+            // 
+            this.Answer1.HeaderText = "A";
+            this.Answer1.MinimumWidth = 6;
+            this.Answer1.Name = "Answer1";
+            // 
+            // Answer2
+            // 
+            this.Answer2.HeaderText = "B";
+            this.Answer2.MinimumWidth = 6;
+            this.Answer2.Name = "Answer2";
+            // 
+            // Answer3
+            // 
+            this.Answer3.HeaderText = "C";
+            this.Answer3.MinimumWidth = 6;
+            this.Answer3.Name = "Answer3";
+            // 
+            // Answer4
+            // 
+            this.Answer4.HeaderText = "D";
+            this.Answer4.MinimumWidth = 6;
+            this.Answer4.Name = "Answer4";
+            // 
+            // AnswerCorrect
+            // 
+            this.AnswerCorrect.HeaderText = "Đáp án đúng";
+            this.AnswerCorrect.MinimumWidth = 6;
+            this.AnswerCorrect.Name = "AnswerCorrect";
             // 
             // NewTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1024, 583);
+            this.ClientSize = new System.Drawing.Size(1207, 583);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxNewQuestion);
             this.Controls.Add(this.groupBoxButton);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "NewTestForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Tạo bộ đề mới";
             this.groupBoxEditInfoTest.ResumeLayout(false);
             this.groupBoxEditInfoTest.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxButton.ResumeLayout(false);
             this.groupBoxButton.PerformLayout();
             this.groupBoxNewQuestion.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -519,7 +621,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxTopic;
         private System.Windows.Forms.GroupBox groupBoxEditInfoTest;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBoxButton;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelTest;
@@ -527,23 +628,29 @@
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBoxNewQuestion;
-        private System.Windows.Forms.Button btnDeleteManyQuestions;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDeleteOneQuestion;
         private System.Windows.Forms.Button btnUpdateQuestion;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RichTextBox richTxtQuestion;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox richTxtA;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox richTxtD;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTxtC;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox richTxtB;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxChooseTheCorrectAnswer;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Question;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Answer4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AnswerCorrect;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.RichTextBox richTxtC;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RichTextBox richTxtB;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RichTextBox richTxtD;
     }
 }

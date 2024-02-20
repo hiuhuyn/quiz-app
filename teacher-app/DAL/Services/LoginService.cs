@@ -1,19 +1,11 @@
 ﻿using DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Services
 {
     public class LoginService
     {
         private const string UrlCheckLogin = "";
-        private LoginService()
-        {
-
-        }
+        private LoginService() { }
         public static APIKey CheckLoginByIdAndPassword(string id, string password)
         {
 

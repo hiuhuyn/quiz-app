@@ -1,11 +1,21 @@
 ﻿using DTO;
+using System;
 using System.Xml;
 
 namespace DAL.DataSources
 {
     public class ApiKeyLocal
     {
-        private const string FileName = "ApiKey.xml";
+        private string FileName
+        {
+            get
+            {
+                string initialPath = AppDomain.CurrentDomain.BaseDirectory;
+                string newStr = initialPath.Replace("GUI\\bin\\Debug\\", "DAL\\DataSources\\ApiKey.xml");
+                return newStr;
+            }
+            set { FileName = value; }
+        }
         public static ApiKeyLocal Instance = new ApiKeyLocal();
         private XmlDocument doc;
         private XmlElement root;
@@ -23,11 +33,13 @@ namespace DAL.DataSources
             {
                 return ApiKey;
             }
-            string key = root.SelectSingleNode("Key").InnerText;
-            string time = root.SelectSingleNode("ExpiredTime").InnerText;
+
+            XmlNode key = root.SelectSingleNode("Key");
+            XmlNode time = root.SelectSingleNode("ExpiredTime");
             if (key == null || time == null) return null;
 
-            return new APIKey(key, time);
+            return new APIKey(key.InnerText, time.InnerText);
+
         }
         public void SaveXml(APIKey apiKey)
         {
@@ -54,7 +66,7 @@ namespace DAL.DataSources
         {
             XmlNode Key = root.SelectSingleNode("Key");
             XmlNode ExpiredTime = root.SelectSingleNode("ExpiredTime");
-            if (Key == null && ExpiredTime == null) return;
+            if (Key == null || ExpiredTime == null) return;
             root.RemoveChild(Key);
             root.RemoveChild(ExpiredTime);
             doc.Save(FileName);

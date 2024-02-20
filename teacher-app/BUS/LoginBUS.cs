@@ -1,41 +1,47 @@
 ﻿using DAL.DataSources;
 using DAL.Services;
 using DTO;
+using DAL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS
 {
     public class LoginBUS
     {
-        public LoginBUS() { }
+        private LoginBUS() { }
 
-        public string CheckLoginByIdAndPassword(string id, string password, bool isRememberLogin)
+        public static string CheckLoginByIdAndPassword(string id, string password, bool isRememberLogin)
         {
+            if (id == "" || id == null) return "Bạn cần nhập tên tài khoản để đăng nhập";
+            if (password == "" || password == null) return "Bạn chưa nhập mật khẩu";
+
             try
             {
                 APIKey aPIKey = LoginService.CheckLoginByIdAndPassword(id, password);
-                if (isRememberLogin)
+                if (aPIKey != null)
                 {
-                    ApiKeyLocal.Instance.SaveXml(aPIKey);
+                    if (isRememberLogin)
+                    {
+                        ApiKeyLocal.Instance.SaveXml(aPIKey);
+                    }
+                    else
+                    {
+                        ApiKeyLocal.Instance.ApiKey = aPIKey;
+                    }
+                    return "login_success";
                 }
                 else
                 {
-                    ApiKeyLocal.Instance.ApiKey = aPIKey;
+                    return "Tài khoản không tồn tại";
                 }
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return "Lỗi: " + ex.Message;
             }
-            return null;
-
         }
 
-        public string CheckLoginByToken()
+        public static string CheckLoginByToken()
         {
             try
             {
@@ -55,10 +61,15 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return $"Lồi : {ex}";
             }
-            return null;
+            return "login_success";
 
+        }
+
+        public static void Signout()
+        {
+            ApiKeyLocal.Instance.RemoveXml();
         }
 
     }
