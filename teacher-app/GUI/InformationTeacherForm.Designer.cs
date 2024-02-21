@@ -82,7 +82,6 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Enabled = false;
             this.txtPassword.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(137, 203);
             this.txtPassword.Name = "txtPassword";
@@ -118,6 +117,7 @@
             this.btnChangePass.TabIndex = 7;
             this.btnChangePass.Text = "Đổi mật khẩu";
             this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // InformationTeacherForm
             // 

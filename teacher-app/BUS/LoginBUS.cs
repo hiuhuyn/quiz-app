@@ -20,13 +20,17 @@ namespace BUS
                 APIKey aPIKey = LoginService.CheckLoginByIdAndPassword(id, password);
                 if (aPIKey != null)
                 {
+                    TeacherService teacherService = new TeacherService(aPIKey);
                     if (isRememberLogin)
                     {
                         ApiKeyLocal.Instance.SaveXml(aPIKey);
+                        TeacherLocal.Instance.SaveXml(teacherService.GetInformation());
                     }
                     else
                     {
                         ApiKeyLocal.Instance.ApiKey = aPIKey;
+                        TeacherLocal.Instance.Teacher = teacherService.GetInformation();
+
                     }
                     return "login_success";
                 }
@@ -61,7 +65,7 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                return $"Lồi : {ex}";
+                return $"Error : {ex}";
             }
             return "login_success";
 

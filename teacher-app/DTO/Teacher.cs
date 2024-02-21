@@ -20,10 +20,10 @@ namespace DTO
             TeacherPassword = teacherPassword;
             APIKey = aPIKey;
         }
-        public Teacher(string teacherID, string teacherPassword)
+        public Teacher(string teacherID, string teacherName)
         {
             TeacherID = teacherID;
-            TeacherPassword = teacherPassword;
+            TeacherName = teacherName;
         }
     }
 }

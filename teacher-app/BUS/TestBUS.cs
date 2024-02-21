@@ -10,6 +10,7 @@ namespace BUS
         private TestService _testService;
 
         public List<Test> ListTests { get; set; }
+        public List<string> ListTopic {  get; set; }
         public Test Test { get; set; }
         public TestBUS()
         {
@@ -89,6 +90,18 @@ namespace BUS
                 bool isDel = _testService.DeleteTest(id);
                 if (isDel) return "succuss";
                 return "delete_fail";
+            }catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string GetListTopic()
+        {
+            try
+            {
+                ListTopic = _testService.GetListTopic();
+                return "success";
             }catch (Exception ex)
             {
                 return ex.Message;

@@ -13,6 +13,8 @@ namespace BUS
     {
         private TeacherService teacherService;
         public TeacherBUS()
+        { }
+        public void InitOnline()
         {
             APIKey apiKey = ApiKeyLocal.Instance.Load();
             if (apiKey != null)
@@ -20,7 +22,7 @@ namespace BUS
                 teacherService = new TeacherService(apiKey);
             }
         }
-        public Teacher GetTeacher()
+        public Teacher GetTeacherOnline()
         {
 
             if (teacherService == null)
@@ -30,6 +32,18 @@ namespace BUS
             else
             {
                 return teacherService.GetInformation();
+            }
+        }
+        public Teacher GetTeacherOffline()
+        {
+
+            if (teacherService == null)
+            {
+                return null;
+            }
+            else
+            {
+                return TeacherLocal.Instance.Load();
             }
         }
         public string UpdatePassword(string newPassword)

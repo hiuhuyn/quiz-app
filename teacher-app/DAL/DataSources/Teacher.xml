@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE root[
+	<!ELEMENT root (ID, NAME)>
+	<!ELEMENT ID (#PCDATA)>
+	<!ELEMENT NAME (#PCDATA)>
+]>
+<root>
+  <ID>2011</ID>
+  <NAME>Minh Quân</NAME>
+</root>

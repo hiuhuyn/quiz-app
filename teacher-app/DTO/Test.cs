@@ -24,13 +24,5 @@ namespace DTO
             TimeLimit = timeLimit;
             QuestionList = questionList;
         }
-        public Test(string testName, string topic, string creator, int timeLimit, List<Question> questionList)
-        {
-            TestName = testName;
-            Topic = topic;
-            Creator = creator;
-            TimeLimit = timeLimit;
-            QuestionList = questionList;
-        }
     }
 }

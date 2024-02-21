@@ -89,6 +89,7 @@ namespace GUI
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridView1.Location = new System.Drawing.Point(10, 56);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(901, 359);
@@ -100,30 +101,35 @@ namespace GUI
             this.ID.HeaderText = "ID";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // Title
             // 
             this.Title.HeaderText = "Tiêu đề";
             this.Title.MinimumWidth = 6;
             this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
             // 
             // Topic
             // 
             this.Topic.HeaderText = "Đề tài";
             this.Topic.MinimumWidth = 6;
             this.Topic.Name = "Topic";
+            this.Topic.ReadOnly = true;
             // 
             // TimeLimit
             // 
             this.TimeLimit.HeaderText = "Thời gian";
             this.TimeLimit.MinimumWidth = 6;
             this.TimeLimit.Name = "TimeLimit";
+            this.TimeLimit.ReadOnly = true;
             // 
             // CountQuestion
             // 
             this.CountQuestion.HeaderText = "Số câu hỏi";
             this.CountQuestion.MinimumWidth = 6;
             this.CountQuestion.Name = "CountQuestion";
+            this.CountQuestion.ReadOnly = true;
             // 
             // DashboardForm
             // 
@@ -150,7 +156,7 @@ namespace GUI
             file.MenuItems.Add(new MenuItem("&Đăng xuất", new System.EventHandler(this.FileLogout_click), Shortcut.CtrlX));
 
             MenuItem about = mainMenu.MenuItems.Add("&About");
-            about.MenuItems.Add(new MenuItem("&About", new System.EventHandler(this.FileViewInfo_click), Shortcut.F1));
+            about.MenuItems.Add(new MenuItem("&About", new System.EventHandler(this.About_click), Shortcut.F1));
 
             this.Menu = mainMenu;
         }

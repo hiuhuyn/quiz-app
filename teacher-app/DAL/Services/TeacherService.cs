@@ -20,7 +20,7 @@ namespace DAL.Services
 
         public Teacher GetInformation()
         {
-            return null;
+            return new Teacher("2011", "Minh Quân", "2911", apiKey);
         }
         public void UpdatePassword(string password)
         {

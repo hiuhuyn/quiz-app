@@ -34,11 +34,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.checkBoxRememberLogin = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +103,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đăng nhập";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Italic);
+            this.label4.Location = new System.Drawing.Point(33, 350);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(236, 15);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Sử dụng tài khoản giáo viên để đăng nhập";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // checkBoxRememberLogin
             // 
             this.checkBoxRememberLogin.AutoSize = true;
@@ -133,6 +144,7 @@
             this.txtPassword.Location = new System.Drawing.Point(36, 213);
             this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(286, 30);
             this.txtPassword.TabIndex = 5;
             // 
@@ -145,17 +157,6 @@
             this.label3.Size = new System.Drawing.Size(79, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Mật khẩu";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Italic);
-            this.label4.Location = new System.Drawing.Point(33, 350);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(236, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Sử dụng tài khoản giáo viên để đăng nhập";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginForm
             // 

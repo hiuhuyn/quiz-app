@@ -23,7 +23,7 @@ namespace GUI
             CenterForm.ToForm(this);
             LoadingData();
         }
-        private void LoadingData()
+        public void LoadingData()
         {
             string req = testBUS.GetAllTestByIdTeacher();
             switch (req)
@@ -53,8 +53,8 @@ namespace GUI
 
         private void FileNew_click(object sender, EventArgs e)
         {
-            NewTestForm newTestForm = new NewTestForm(null);
-            newTestForm.ShowDialog();
+            NewTestForm newTestForm = new NewTestForm(null, this);
+            newTestForm.Show();
         }
         private void FileViewInfo_click(object sender, EventArgs e)
         {
@@ -69,6 +69,11 @@ namespace GUI
             form.ShowDialog();
             Close();
         }
+        private void About_click(object sender, EventArgs e)
+        {
+            AboutForm form = new AboutForm();
+            form.Show();
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -78,8 +83,8 @@ namespace GUI
             {
                 if(t.TestID == idTest)
                 {
-                    NewTestForm newTestForm = new NewTestForm(t);
-                    newTestForm.ShowDialog();
+                    NewTestForm newTestForm = new NewTestForm(t, this);
+                    newTestForm.Show();
                     break;
                 }
             }
