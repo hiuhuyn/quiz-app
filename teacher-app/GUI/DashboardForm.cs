@@ -45,7 +45,7 @@ namespace GUI
                 dataGridView1.Rows[sd].Cells[1].Value = t.TestName;
                 dataGridView1.Rows[sd].Cells[2].Value = t.Topic;
                 dataGridView1.Rows[sd].Cells[3].Value = t.TimeLimit;
-                dataGridView1.Rows[sd].Cells[4].Value = t.QuestionList.Count;
+                dataGridView1.Rows[sd].Cells[4].Value = t.QuestionList?.Count;
                 sd++;
             }
         }

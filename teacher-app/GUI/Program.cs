@@ -30,9 +30,9 @@ namespace GUI
                         break;
                     default:
                         Application.Run(new LoginForm());
+                        Console.WriteLine($"Error: {check_login}");
                         break;
                 }
-                Console.WriteLine($"Error1: {check_login}");
             }
             
             catch (Exception ex)

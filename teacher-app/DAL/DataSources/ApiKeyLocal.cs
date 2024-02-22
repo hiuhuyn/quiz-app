@@ -19,7 +19,7 @@ namespace DAL.DataSources
         public static ApiKeyLocal Instance = new ApiKeyLocal();
         private XmlDocument doc;
         private XmlElement root;
-        public APIKey ApiKey { get; set; }
+        public string ApiKey { get; set; }
         private ApiKeyLocal()
         {
             doc = new XmlDocument();
@@ -27,7 +27,7 @@ namespace DAL.DataSources
             root = doc.DocumentElement;
         }
 
-        public APIKey Load()
+        public string Load()
         {
             if (ApiKey != null)
             {
@@ -35,29 +35,23 @@ namespace DAL.DataSources
             }
 
             XmlNode key = root.SelectSingleNode("Key");
-            XmlNode time = root.SelectSingleNode("ExpiredTime");
-            if (key == null || time == null) return null;
+            if (key == null) return null;
 
-            return new APIKey(key.InnerText, time.InnerText);
+            return key.InnerText;
 
         }
-        public void SaveXml(APIKey apiKey)
+        public void SaveXml(string apiKey)
         {
             XmlNode Key = root.SelectSingleNode("Key");
-            XmlNode ExpiredTime = root.SelectSingleNode("ExpiredTime");
-            if (Key == null && ExpiredTime == null)
+            if (Key == null)
             {
                 XmlElement key = doc.CreateElement("Key");
-                key.InnerText = apiKey.Key;
-                XmlElement expiredTime = doc.CreateElement("ExpiredTime");
-                expiredTime.InnerText = apiKey.ExpiredTime;
+                key.InnerText = apiKey;
                 root.AppendChild(key);
-                root.AppendChild(expiredTime);
             }
             else
             {
-                Key.InnerText = apiKey.Key;
-                ExpiredTime.InnerText = apiKey.ExpiredTime;
+                Key.InnerText = apiKey;
             }
             doc.Save(FileName);
         }
@@ -65,10 +59,8 @@ namespace DAL.DataSources
         public void RemoveXml()
         {
             XmlNode Key = root.SelectSingleNode("Key");
-            XmlNode ExpiredTime = root.SelectSingleNode("ExpiredTime");
-            if (Key == null || ExpiredTime == null) return;
+            if (Key == null) return;
             root.RemoveChild(Key);
-            root.RemoveChild(ExpiredTime);
             doc.Save(FileName);
         }
     }

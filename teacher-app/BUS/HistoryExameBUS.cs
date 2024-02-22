@@ -1,4 +1,5 @@
-﻿using DAL.Services;
+﻿using DAL.DataSources;
+using DAL.Services;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,20 @@ namespace BUS
         {
             try
             {
-                return HistoryExameService.GetRecords(testId);
-            }catch (Exception ex)
+                string apikey = ApiKeyLocal.Instance.Load();
+                if (apikey != null)
+                {
+                    HistoryExameService historyExameService = new HistoryExameService(apikey);
+                    Task<State<List<Record>>> state = Task.Run(() => historyExameService.GetRecords(testId));
+                    State<List<Record>> result = state.Result;
+                    if (result.Value != null)
+                    {
+                        return result.Value.ToList();
+                    }
+                }
+                return new List<Record>();
+            }
+            catch (Exception ex)
             {
                 return new List<Record>();
             }

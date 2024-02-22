@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\SerializeToXml.cs" />
     <Compile Include="DataSources\ApiKeyLocal.cs" />
     <Compile Include="DataSources\DataFake.cs" />
     <Compile Include="DataSources\TeacherLocal.cs" />

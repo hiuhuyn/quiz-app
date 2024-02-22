@@ -345,6 +345,7 @@
             // comboBoxChooseTheCorrectAnswer
             // 
             this.comboBoxChooseTheCorrectAnswer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.comboBoxChooseTheCorrectAnswer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxChooseTheCorrectAnswer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChooseTheCorrectAnswer.FormattingEnabled = true;
             this.comboBoxChooseTheCorrectAnswer.Items.AddRange(new object[] {
@@ -352,6 +353,7 @@
             "B",
             "C",
             "D"});
+            this.comboBoxChooseTheCorrectAnswer.SelectedIndex = 0;
             this.comboBoxChooseTheCorrectAnswer.Location = new System.Drawing.Point(5, 26);
             this.comboBoxChooseTheCorrectAnswer.Name = "comboBoxChooseTheCorrectAnswer";
             this.comboBoxChooseTheCorrectAnswer.Size = new System.Drawing.Size(186, 27);

@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE root[
-	<!ELEMENT root (Key, ExpiredTime)>
+	<!ELEMENT root (Key)>
 	<!ELEMENT Key (#PCDATA)>
-	<!ELEMENT ExpiredTime (#PCDATA)>
 ]>
 <root>
-  <Key>hased_key_example</Key>
-  <ExpiredTime>170793182</ExpiredTime>
+  <Key>2b13e87622a5aacd157b487d416c04862d4f822ba86b91594320ddb177cb2eada</Key>
 </root>

@@ -5,6 +5,6 @@
 	<!ELEMENT NAME (#PCDATA)>
 ]>
 <root>
-  <ID>2011</ID>
-  <NAME>Minh Quân</NAME>
+  <ID>tc_01</ID>
+  <NAME>Ella Lee</NAME>
 </root>

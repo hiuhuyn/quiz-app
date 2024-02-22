@@ -25,9 +25,19 @@ namespace GUI
         }
         private void _loaddata()
         {
-            Teacher t = teacherBUS.GetTeacherOffline();
-            txtID.Text = t.TeacherID;
-            txtName.Text = t.TeacherName;
+            string req = teacherBUS.GetTeacherOffline();
+            switch (req)
+            {
+                case "success":
+                    Teacher t = teacherBUS.Teacher;
+                    txtID.Text = t.TeacherID;
+                    txtName.Text = t.TeacherName;
+                    break;
+                case "fail":
+                    MessageBox.Show("Lấy dữ liệu lỗi");
+                    break;
+            }
+            
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)

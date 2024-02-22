@@ -12,17 +12,17 @@ namespace BUS
     public class TeacherBUS
     {
         private TeacherService teacherService;
-        public TeacherBUS()
-        { }
+        public Teacher Teacher { get; set; }
+        public TeacherBUS() { }
         public void InitOnline()
         {
-            APIKey apiKey = ApiKeyLocal.Instance.Load();
+            string apiKey = ApiKeyLocal.Instance.Load();
             if (apiKey != null)
             {
                 teacherService = new TeacherService(apiKey);
             }
         }
-        public Teacher GetTeacherOnline()
+        public string GetTeacherOnline()
         {
 
             if (teacherService == null)
@@ -31,19 +31,32 @@ namespace BUS
             }
             else
             {
-                return teacherService.GetInformation();
+                Task<State<Teacher>> state = Task.Run(() => teacherService.GetInformation());
+                State<Teacher> result = state.Result;
+
+                if(result.Value!= null)
+                {
+                    Teacher = result.Value;
+                    return "success";
+                }
+                else
+                {
+                    return result.ErrorContent.Message;
+                }
+                
             }
         }
-        public Teacher GetTeacherOffline()
+        public string GetTeacherOffline()
         {
 
             if (teacherService == null)
             {
-                return null;
+                return "fail";
             }
             else
             {
-                return TeacherLocal.Instance.Load();
+                Teacher = TeacherLocal.Instance.Load();
+                return "success";
             }
         }
         public string UpdatePassword(string newPassword)

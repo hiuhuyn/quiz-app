@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
+using DAL.Components;
 using DAL.DataSources;
 using DTO;
 using static System.Net.Mime.MediaTypeNames;
@@ -7,19 +13,38 @@ namespace DAL.Services
 {
     public class TestService
     {
-        private const string URL_Get_AllTest = "";
-        private const string URL_Insert_Test = "";
-        private const string URL_Update_Test = "";
-        private const string URL_Delete_Test = "";
+        private string apiKey;
 
-        public TestService()
+        public TestService(string apiKey)
         {
+            this.apiKey = apiKey;
         }
 
-        public List<Test> GetAllTestByIdTeacher()
+        public async Task<State<List<Test>>> GetAllTestByIdTeacher()
         {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(Constaints.GET_ALL_TEST(apiKey));
 
-            return DataFake.GetListTests;
+            if (response.IsSuccessStatusCode)
+            {
+                string responseBody = await response.Content.ReadAsStringAsync();
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(responseBody);
+                XmlElement root = doc.DocumentElement;
+                XmlNodeList nodes = root.ChildNodes;
+                List<Test> result = new List<Test>();
+
+                foreach (XmlNode item in nodes)
+                {
+                    Test t = new Test(item.OuterXml);
+                    result.Add(t);
+                }
+                return new State<List<Test>>(result);
+            }
+            else
+            {
+                return new State<List<Test>>(new Exception($"Status code: {response.StatusCode}"));
+            }
         }
 
         public Test GetTestById(string id)
@@ -27,28 +52,54 @@ namespace DAL.Services
             return DataFake.GetListTests.Find(item => item.TestID == id);
         }
 
-        public Test InsertTest(Test test)
+        public async Task<State<Test>> InsertTest(Test test)
         {
-            DataFake.GetListTests.Add(test);
-            return test;
+            HttpClient client = new HttpClient();
+            var content = new StringContent(test.ToXml(), Encoding.UTF8, "application/xml");
+            HttpResponseMessage response = await client.PostAsync(Constaints.POST_ADD_NEW_TEST(apiKey), content);
+            if (response.IsSuccessStatusCode)
+            {
+                string result = await response.Content.ReadAsStringAsync();
+                Test t = new Test(result);
+                return new State<Test>(t);
+            }
+
+            return new State<Test>(new Exception("Status code: " + response.StatusCode));
+
         }
-        public Test UpdateTest(Test test)
+        public async Task<State<Test>> UpdateTest(Test test)
         {
-            int index = DataFake.GetListTests.FindIndex(item => item.TestID == test.TestID);
-            if (index == -1) return null;
-            DataFake.GetListTests[index] = test;
-            return test;
+            HttpClient client = new HttpClient();
+            var content = new StringContent(test.ToXml(), Encoding.UTF8, "application/xml");
+            HttpResponseMessage response = await client.PutAsync(Constaints.PUT_UPDATE_TEST(apiKey, test.TestID), content);
+            if (response.IsSuccessStatusCode)
+            {
+                string result = await response.Content.ReadAsStringAsync();
+                Test t = new Test(result);
+                return new State<Test>(t);
+            }
+
+            return new State<Test>(new Exception("Status code: " + response.StatusCode));
         }
 
-        public bool DeleteTest(string id)
+        public async Task<State<bool>> DeleteTest(string id)
         {
-            int index = DataFake.GetListTests.FindIndex(item => item.TestID == id);
-            if(index == -1)
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.DeleteAsync(Constaints.DEL_DELETE_TEST(apiKey, id));
+            if (response.IsSuccessStatusCode)
             {
-                return false;
+                string result = await response.Content.ReadAsStringAsync();
+                XmlDocument document = new XmlDocument();
+                document.LoadXml(result);
+                XmlNode error = document.SelectSingleNode("Error");
+                if (error != null)
+                {
+                    return new State<bool>(false, new Exception(error.InnerText));
+                }
+                return new State<bool>(true);
             }
-            DataFake.GetListTests.RemoveAt(index);
-            return true;
+
+            return new State<bool>(new Exception("Status code: " + response.StatusCode));
         }
 
         public List<string> GetListTopic()

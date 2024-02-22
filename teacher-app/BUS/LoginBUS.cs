@@ -3,6 +3,7 @@ using DAL.Services;
 using DTO;
 using DAL;
 using System;
+using System.Threading.Tasks;
 
 namespace BUS
 {
@@ -17,26 +18,54 @@ namespace BUS
 
             try
             {
-                APIKey aPIKey = LoginService.CheckLoginByIdAndPassword(id, password);
-                if (aPIKey != null)
+                Task<State<string>> state = Task.Run(() => LoginService.CheckLoginByIdAndPassword(id, password));
+
+                State<string> result = state.Result;
+                if (result.Value != null)
                 {
-                    TeacherService teacherService = new TeacherService(aPIKey);
-                    if (isRememberLogin)
+                    string aPIKey = result.Value;
+                    if (aPIKey != null)
                     {
-                        ApiKeyLocal.Instance.SaveXml(aPIKey);
-                        TeacherLocal.Instance.SaveXml(teacherService.GetInformation());
+                        TeacherService teacherService = new TeacherService(aPIKey);
+                        Task<State<Teacher>> stateTeacher = Task.Run(() => teacherService.GetInformation());
+                        State<Teacher> resultTeacher = stateTeacher.Result;
+
+                        if (resultTeacher.Value != null)
+                        {
+                            Teacher teacher = resultTeacher.Value;
+                            if (isRememberLogin)
+                            {
+                                ApiKeyLocal.Instance.SaveXml(aPIKey);
+                                TeacherLocal.Instance.SaveXml(teacher);
+                            }
+                            else
+                            {
+                                ApiKeyLocal.Instance.ApiKey = aPIKey;
+                                TeacherLocal.Instance.Teacher = teacher;
+                            }
+                        }
+                        else
+                        {
+                            return resultTeacher.ErrorContent.Message;
+                        }
+                        return "login_success";
                     }
                     else
                     {
-                        ApiKeyLocal.Instance.ApiKey = aPIKey;
-                        TeacherLocal.Instance.Teacher = teacherService.GetInformation();
-
+                        return "Tài khoản không tồn tại";
                     }
-                    return "login_success";
                 }
                 else
                 {
-                    return "Tài khoản không tồn tại";
+                    switch (result.ErrorContent.Message)
+                    {
+                        case "apikey_notfound":
+                            return "404";
+                        case "NotFound":
+                            return "Không tìm thấy tài khoản";
+                        default:
+                            return result.ErrorContent.Message;
+                    }
                 }
             }
             catch (Exception ex)
@@ -49,14 +78,10 @@ namespace BUS
         {
             try
             {
-                APIKey aPIKeyLocal = ApiKeyLocal.Instance.Load();
+                string aPIKeyLocal = ApiKeyLocal.Instance.Load();
                 if (aPIKeyLocal != null)
                 {
-                    bool isLoginSuccess = LoginService.CheckLoginByToken(aPIKeyLocal.Key);
-                    if (!isLoginSuccess)
-                    {
-                        return "login_again";
-                    }
+                    return "login_success";
                 }
                 else
                 {
@@ -67,7 +92,7 @@ namespace BUS
             {
                 return $"Error : {ex}";
             }
-            return "login_success";
+
 
         }
 

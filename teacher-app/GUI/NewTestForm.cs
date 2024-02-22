@@ -29,6 +29,7 @@ namespace GUI
             if (reqListTopic == "success")
             {
                 List<string> listTopic = _testBus.ListTopic;
+                comboBoxTopic.Text = listTopic.FirstOrDefault();
                 foreach (string topic in listTopic)
                 {
                     comboBoxTopic.Items.Add(topic);
@@ -56,7 +57,7 @@ namespace GUI
                 this.btnDelTest.Visible = false;
             }
 
-           
+
         }
         private void _load_data_on_view()
         {
@@ -123,56 +124,79 @@ namespace GUI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string id = txtID.Text;
             string title = txtTitle.Text;
-            int timeLimit = Convert.ToInt32(txtTimeLimit.Text);
+            int timeLimit;
+            try
+            {
+                timeLimit = Convert.ToInt32(txtTimeLimit.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Thời gian làm bài không được để trống");
+                return;
+            }
             string topic = comboBoxTopic.Text;
             List<Question> list = _getQuestionsByTable();
 
-            Teacher t = new TeacherBUS().GetTeacherOffline();
 
-            Test newTest = new Test(id, title, topic, t.TeacherID, timeLimit, list);
-            if (IsInsert)
+            Test newTest = null;
+            if (_test == null)
             {
-                string req = _testBus.InsertTest(newTest);
-                switch(req)
-                {
-                    case "name_is_empty":
-                        MessageBox.Show("Tiêu đề không được để trống!");
-                        break;
-                    case "timelimit_is_less_1":
-                        MessageBox.Show("Thời gian làm bài của bạn cần lớn hơn 1 phút");
-                        break;
-                    case "success":
-                        MessageBox.Show("Thêm thành công");
-                        dashboardForm.LoadingData();
-                        this.Close();
-                        break;
-                    default:
-                        MessageBox.Show("Lỗi: " + req);
-                        break;
-                }
+                newTest = new Test();
             }
             else
             {
-                string req = _testBus.UpdateTest(newTest);
-                switch (req)
-                {
-                    case "name_is_empty":
-                        MessageBox.Show("Tiêu đề không được để trống!");
-                        break;
-                    case "timelimit_is_less_1":
-                        MessageBox.Show("Thời gian làm bài của bạn cần lớn hơn 1 phút");
-                        break;
-                    case "success":
-                        MessageBox.Show("Cập nhật thành công");
-                        dashboardForm.LoadingData();
-                        this.Close();
-                        break;
-                    default:
-                        MessageBox.Show("Lỗi: " + req);
-                        break;
-                }
+                newTest = _test;
+            };
+            newTest.TestName = title;
+            newTest.QuestionList = list;
+            newTest.TimeLimit = timeLimit;
+            newTest.Topic = topic;
+            string checkData = _testBus.CheckDataTest(newTest);
+            switch (checkData)
+            {
+                case "name_is_empty":
+                    MessageBox.Show("Tiêu đề không được để trống!");
+                    break;
+                case "timelimit_is_less_1":
+                    MessageBox.Show("Thời gian làm bài của bạn cần lớn hơn 1 phút");
+                    break;
+                case "topic_empty":
+                    MessageBox.Show("Chủ đề của bạn đáng trống");
+                    break;
+                case "success":
+                    if (IsInsert)
+                    {
+                        string req = _testBus.InsertTest(newTest);
+                        switch (req)
+                        {
+                            case "success":
+                                MessageBox.Show("Thêm thành công");
+                                dashboardForm.LoadingData();
+                                this.Close();
+                                break;
+                            default:
+                                MessageBox.Show("Lỗi: " + req);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        string req = _testBus.UpdateTest(newTest);
+                        switch (req)
+                        {
+                            case "success":
+                                MessageBox.Show("Cập nhật thành công");
+                                dashboardForm.LoadingData();
+                                this.Close();
+                                break;
+                            default:
+                                MessageBox.Show("Lỗi: " + req);
+                                break;
+                        }
+                    }
+
+                    break;
             }
         }
         private List<Question> _getQuestionsByTable()
@@ -182,6 +206,7 @@ namespace GUI
             {
 
                 string questionStr = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                if (questionStr.Length == 0) continue;
                 string correct = dataGridView1.Rows[index].Cells[5].Value.ToString();
                 Question qi = new Question(questionStr, new List<Answer>
                 {
@@ -203,15 +228,27 @@ namespace GUI
 
         private void btnDelTest_Click(object sender, EventArgs e)
         {
-            _testBus.DeleteTest(txtID.Text);
-            dashboardForm.LoadingData();
-            MessageBox.Show("Xóa bộ đề thành công");
-            this.Close();
+
+            string req = _testBus.DeleteTest(txtID.Text);
+            switch (req)
+            {
+                case "success":
+                    dashboardForm.LoadingData();
+                    MessageBox.Show("Xóa bộ đề thành công");
+                    this.Close();
+                    break;
+                case "id_is_empty":
+                    MessageBox.Show("Dữ liệu xóa không hợp lệ");
+                    break;
+                default:
+                    MessageBox.Show(req);
+                    break;
+            }
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            HistoryExameForm frm = new HistoryExameForm();
+            HistoryExameForm frm = new HistoryExameForm(_test.TestID);
             frm.Show();
         }
 
