@@ -1,0 +1,12 @@
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DTO\bin\Debug\DTO.dll
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DTO\bin\Debug\DTO.pdb
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DTO\obj\Debug\DTO.dll
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app-2\teacher-app\DTO\obj\Debug\DTO.pdb
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app\teacher-app\DTO\bin\Debug\DTO.dll
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app\teacher-app\DTO\bin\Debug\DTO.pdb
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app\teacher-app\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app\teacher-app\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app\teacher-app\DTO\obj\Debug\DTO.dll
+D:\Document\Document school\XML va ung dung\bai tap lon\quiz-app\teacher-app\DTO\obj\Debug\DTO.pdb
