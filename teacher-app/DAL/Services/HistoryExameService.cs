@@ -11,7 +11,6 @@ namespace DAL.Services
 {
     public class HistoryExameService
     {
-        private const string URL_Get = "";
         private string apiKey;
         public HistoryExameService(string apiKey) { this.apiKey = apiKey; }
         public async Task<State<List<Record>>> GetRecords(string testID)
