@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE QLTTSV[
+	<!ELEMENT QLTTSV (SV+)>
+	<!ELEMENT SV (Name,Sex,Address,Phone,Email)>
+	<!ELEMENT Name (#PCDATA)>
+	<!ELEMENT Sex (#PCDATA)>
+	<!ELEMENT Address (#PCDATA)>
+	<!ELEMENT Phone (#PCDATA)>
+	<!ELEMENT Email (#PCDATA)>
+	<!ATTLIST SV id ID #REQUIRED>
+]>
+<QLTTSV>
+  <SV id="ex_04">
+    <Name>Vũ</Name>
+    <Sex>Nữ</Sex>
+    <Address>Thái Nguyên</Address>
+    <Phone>0648456878</Phone>
+    <Email>QuangVu@gmail.com</Email>
+  </SV>
+  <SV id="ex_02">
+    <Name>Vũ</Name>
+    <Sex>Nam</Sex>
+    <Address>Thái Nguyên</Address>
+    <Phone>0648456878</Phone>
+    <Email>QuangVu@gmail.com</Email>
+  </SV>
+  <SV id="ex_03">
+    <Name>Vũ</Name>
+    <Sex>Nữ</Sex>
+    <Address>Thái Nguyên</Address>
+    <Phone>0648456878</Phone>
+    <Email>QuangVu@gmail.com</Email>
+  </SV>
+</QLTTSV>
