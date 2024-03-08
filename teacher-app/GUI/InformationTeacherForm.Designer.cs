@@ -79,6 +79,7 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Mật khẩu";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Visible = false;
             // 
             // txtPassword
             // 
@@ -87,6 +88,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(178, 30);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Visible = false;
             // 
             // label4
             // 
@@ -117,6 +119,7 @@
             this.btnChangePass.TabIndex = 7;
             this.btnChangePass.Text = "Đổi mật khẩu";
             this.btnChangePass.UseVisualStyleBackColor = true;
+            this.btnChangePass.Visible = false;
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // InformationTeacherForm

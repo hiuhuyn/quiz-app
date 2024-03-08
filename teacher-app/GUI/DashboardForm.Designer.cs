@@ -155,9 +155,9 @@ namespace GUI
             file.MenuItems.Add(new MenuItem("-"));
             file.MenuItems.Add(new MenuItem("&Đăng xuất", new System.EventHandler(this.FileLogout_click), Shortcut.CtrlX));
 
-            MenuItem about = mainMenu.MenuItems.Add("&About");
+            /*MenuItem about = mainMenu.MenuItems.Add("&About");
             about.MenuItems.Add(new MenuItem("&About", new System.EventHandler(this.About_click), Shortcut.F1));
-
+*/
             this.Menu = mainMenu;
         }
         private MainMenu mainMenu;

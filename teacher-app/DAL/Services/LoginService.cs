@@ -15,10 +15,10 @@ namespace DAL.Services
         public static async Task<State<string>> CheckLoginByIdAndPassword(string id, string password)
         {
 
-            string xmlData = $@"<Teacher>
+            string xmlData = $@"<Examinee>
                 <TeacherID>{id}</TeacherID>
                 <TeacherPassword>{password}</TeacherPassword>
-            </Teacher>";
+            </Examinee>";
 
             HttpClient client = new HttpClient();
             var content = new StringContent(xmlData, Encoding.UTF8, "application/xml");
@@ -30,6 +30,7 @@ namespace DAL.Services
                 string responseBody = await response.Content.ReadAsStringAsync();
                 XDocument xmlDoc = XDocument.Parse(responseBody);
                 XElement key = xmlDoc.Root?.Element("Key");
+
                 if (key != null)
                 {
                     return new State<string>(key.Value);
@@ -41,7 +42,7 @@ namespace DAL.Services
             }
             else
             {
-                return new State<string>(new Exception(response.StatusCode.ToString()));
+                return new State<string>(new Exception($"Status code error: {response.StatusCode}"));
             }
         }
     }
